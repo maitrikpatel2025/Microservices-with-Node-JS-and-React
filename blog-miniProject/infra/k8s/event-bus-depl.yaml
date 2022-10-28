@@ -15,3 +15,19 @@ spec:
       containers:
         - name: event-bus
           image: maitrikpatel2025/event-bus:latest 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-bus-srv
+spec:
+  # type : ClusterIP  - Kubernetes will default to creating a cluster IP service for
+  selector :
+      app: event-bus
+  ports: 
+    - name: event-bus
+      protocol: TCP
+      port: 4005
+      targetPort: 4005
+
