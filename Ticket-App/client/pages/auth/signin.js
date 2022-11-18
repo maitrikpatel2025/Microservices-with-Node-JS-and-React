@@ -8,7 +8,7 @@ const signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { doRequest, errors } = useRequest({
-    url: "/api/users/signup",
+    url: "/api/users/signin",
     method: "post",
     body: {
       email,
@@ -27,7 +27,7 @@ const signup = () => {
       <form onSubmit={onSubmit}>
         <div className={styles.container}>
           <div className="row mb-4">
-            <h2 className="col d-flex justify-content-center">Sign Up</h2>
+            <h2 className="col d-flex justify-content-center">Sign In</h2>
           </div>
           <div className="form-group">
             <label className="form-label">Email</label>
@@ -53,12 +53,11 @@ const signup = () => {
             <div className="col d-flex justify-content-center"></div>
           </div>
           {errors}
-          <button className={styles.submitButton}>Sign Up</button>
+          <button className={styles.submitButton}>Sign In</button>
 
           <div className="text-center">
             <p>
-              already a member  
-              <Link href="/auth/signin">sign in</Link>
+              not a member <Link href="/auth/signup">sign up</Link>
             </p>
           </div>
         </div>
